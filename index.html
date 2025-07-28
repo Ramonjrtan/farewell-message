@@ -87,15 +87,24 @@
 <div class="container">
   <div class="form-section">
     <h2>Type your name + the 4-digit code to see my message for you 🙂</h2>
-	<h3>ex. ramon9821</h3>
-    <input type="text" id="firstName" placeholder="Type your first name here..." oninput="showMessage()">
+    <h3>e.g., ramon9821</h3>
+    <input
+      type="text"
+      id="firstName"
+      placeholder="Type your name and 4-digit code here..."
+      oninput="showMessage()"
+    >
     <div class="message" id="messageDisplay"></div>
   </div>
 
   <div class="image-section">
-    <img src="https://38.media.tumblr.com/ef2f0535450b01ad91c23b4e38646e2b/tumblr_mryzllIRT91rz5foro1_r1_500.gif" alt="Thank You GIF">
+    <img
+      src="https://38.media.tumblr.com/ef2f0535450b01ad91c23b4e38646e2b/tumblr_mryzllIRT91rz5foro1_r1_500.gif"
+      alt="Thank You GIF"
+    >
   </div>
 </div>
+
 
 <script>
   const messages = {
