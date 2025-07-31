@@ -1,12 +1,14 @@
 let messages = {};
 
+// Load the messages JSON file
 fetch('messages.json')
   .then(response => response.json())
   .then(data => {
     messages = data;
   })
   .catch(error => {
-    document.getElementById("messageBox").innerText = "Failed to load messages.";
+    const messageBox = document.getElementById("messageBox");
+    messageBox.innerText = "Failed to load messages.";
     console.error("Error loading messages:", error);
   });
 
@@ -19,6 +21,8 @@ function checkCode(event) {
     // Create and append message text
     const messageParagraph = document.createElement("p");
     messageParagraph.style.whiteSpace = "pre-wrap";
+    messageParagraph.style.wordBreak = "break-word"; // Ensure long words/wrapped lines are handled
+    messageParagraph.style.textAlign = "left"; // Optional: improve readability
     messageParagraph.innerText = messages[input];
     messageBox.appendChild(messageParagraph);
 
@@ -32,8 +36,7 @@ function checkCode(event) {
 
     imageSection.appendChild(image);
     messageBox.appendChild(imageSection);
+  } else {
+    messageBox.innerText = "Sorry, no message found for that name.";
   }
-  else {
-  messageBox.innerText = "Sorry, no message found for that name.";
-}
 }
