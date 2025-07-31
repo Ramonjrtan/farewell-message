@@ -16,8 +16,13 @@ function checkCode(event) {
   messageBox.innerHTML = ""; // Clear previous content
 
   if (messages[input]) {
-    messageBox.textContent = messages[input];
+    // Create and append message text
+    const messageParagraph = document.createElement("p");
+    messageParagraph.style.whiteSpace = "pre-wrap";
+    messageParagraph.innerText = messages[input];
+    messageBox.appendChild(messageParagraph);
 
+    // Create and append image
     const imageSection = document.createElement("div");
     imageSection.className = "image-section";
 
