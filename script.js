@@ -11,14 +11,21 @@ fetch('messages.json')
   });
 
 function checkCode(event) {
-  if (event.key === "Enter") {
-    const code = event.target.value.trim().toLowerCase();
-    const message = messages[code];
+  const input = event.target.value.toLowerCase().trim();
+  const messageBox = document.getElementById("messageBox");
+  messageBox.innerHTML = ""; // Clear previous content
 
-    if (message) {
-      document.getElementById("messageBox").innerText = message;
-    } else {
-      document.getElementById("messageBox").innerText = "❌ No message found for that name/code.";
-    }
+  if (messages[input]) {
+    messageBox.textContent = messages[input];
+
+    const imageSection = document.createElement("div");
+    imageSection.className = "image-section";
+
+    const image = document.createElement("img");
+    image.src = "https://38.media.tumblr.com/ef2f0535450b01ad91c23b4e38646e2b/tumblr_mryzllIRT91rz5foro1_r1_500.gif";
+    image.alt = "Thank You GIF";
+
+    imageSection.appendChild(image);
+    messageBox.appendChild(imageSection);
   }
 }
