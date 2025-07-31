@@ -33,4 +33,7 @@ function checkCode(event) {
     imageSection.appendChild(image);
     messageBox.appendChild(imageSection);
   }
+  else {
+  messageBox.innerText = "Sorry, no message found for that name.";
+}
 }
